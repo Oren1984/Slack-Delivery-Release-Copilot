@@ -1,0 +1,83 @@
+{
+  "scenario_id": "unauthorized-approval",
+  "title": "Scenario 4 — Unauthorized Approval Attempt",
+  "description": "The release is otherwise ready for approval, but an Observer (unauthorized role) attempts to approve it. The attempt must be rejected and a security/governance audit event recorded; the release remains unapproved.",
+  "sprint": {
+    "id": "SPR-104",
+    "name": "Sprint 26 — Search Relevance Upgrade",
+    "goal": "Improve search relevance ranking for the top 20 catalog categories.",
+    "start_date": "2026-09-14T09:00:00Z",
+    "end_date": "2026-09-25T18:00:00Z"
+  },
+  "work_items": [
+    {
+      "id": "WI-401",
+      "title": "Relevance ranking model v2 rollout",
+      "priority": "Critical",
+      "business_value": "High",
+      "status": "Done",
+      "code_review_status": "Approved",
+      "qa_status": "Passed",
+      "dod_checklist": [
+        {"description": "A/B test results reviewed", "completed": true}
+      ],
+      "estimated_remaining_hours": 0,
+      "blocking_dependency_ids": [],
+      "required_for_sprint_goal": true,
+      "committed": true,
+      "final_disposition": "Delivered"
+    },
+    {
+      "id": "WI-402",
+      "title": "Category boost weighting config",
+      "priority": "High",
+      "business_value": "High",
+      "status": "Done",
+      "code_review_status": "Approved",
+      "qa_status": "Passed",
+      "dod_checklist": [
+        {"description": "Config reviewed by Tech Lead", "completed": true}
+      ],
+      "estimated_remaining_hours": 0,
+      "blocking_dependency_ids": [],
+      "required_for_sprint_goal": true,
+      "committed": true,
+      "final_disposition": "Delivered"
+    },
+    {
+      "id": "WI-403",
+      "title": "Search results page loading skeleton",
+      "priority": "Low",
+      "business_value": "Medium",
+      "status": "Done",
+      "code_review_status": "Approved",
+      "qa_status": "Passed",
+      "dod_checklist": [],
+      "estimated_remaining_hours": 0,
+      "blocking_dependency_ids": [],
+      "required_for_sprint_goal": false,
+      "committed": true,
+      "final_disposition": "Delivered"
+    }
+  ],
+  "defects": [],
+  "release_candidate": {
+    "id": "REL-104",
+    "version": "v1.7.0",
+    "release_notes_available": true,
+    "rollback_plan_available": true,
+    "rollback_owner": "Elena Cho",
+    "monitoring_plan_available": true,
+    "tests_passed": true,
+    "unresolved_mandatory_dependencies": []
+  },
+  "authorized_actors": [
+    {"name": "Elena Cho", "role": "Tech Lead"},
+    {"name": "Marcus Webb", "role": "QA Lead"},
+    {"name": "Priya Nair", "role": "Delivery Manager"},
+    {"name": "Jordan Blake", "role": "Observer"}
+  ],
+  "historical_sprints": [],
+  "simulated_now": "2026-09-22T12:00:00Z",
+  "force_llm_failure": false
+}

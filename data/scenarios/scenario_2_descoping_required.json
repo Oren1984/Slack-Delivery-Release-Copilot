@@ -1,0 +1,145 @@
+{
+  "scenario_id": "descoping-required",
+  "title": "Scenario 2 — Descoping Required",
+  "description": "Sprint ends within 48 hours; several low-priority items remain incomplete while the main sprint goal can still be protected. The engine should recommend specific descoping candidates without changing any item automatically.",
+  "sprint": {
+    "id": "SPR-102",
+    "name": "Sprint 25 — Notification Retry Overhaul",
+    "goal": "Ship retry-safe payment gateway integration with rollback-capable hooks.",
+    "start_date": "2026-09-14T09:00:00Z",
+    "end_date": "2026-09-25T18:00:00Z"
+  },
+  "work_items": [
+    {
+      "id": "WI-201",
+      "title": "Retry-safe payment gateway integration",
+      "priority": "Critical",
+      "business_value": "High",
+      "status": "In QA",
+      "code_review_status": "Approved",
+      "qa_status": "In Progress",
+      "dod_checklist": [
+        {"description": "Unit tests added", "completed": true},
+        {"description": "Runbook updated", "completed": false}
+      ],
+      "estimated_remaining_hours": 8,
+      "blocking_dependency_ids": [],
+      "required_for_sprint_goal": true,
+      "committed": true,
+      "final_disposition": "Pending"
+    },
+    {
+      "id": "WI-202",
+      "title": "Payment gateway rollback hooks",
+      "priority": "Critical",
+      "business_value": "High",
+      "status": "In Progress",
+      "code_review_status": "Not Started",
+      "qa_status": "Not Started",
+      "dod_checklist": [
+        {"description": "Rollback tested in staging", "completed": false}
+      ],
+      "estimated_remaining_hours": 10,
+      "blocking_dependency_ids": [],
+      "required_for_sprint_goal": true,
+      "committed": true,
+      "final_disposition": "Pending"
+    },
+    {
+      "id": "WI-203",
+      "title": "Admin CSV export formatting cleanup",
+      "priority": "Low",
+      "business_value": "Low",
+      "status": "Not Started",
+      "code_review_status": "Not Started",
+      "qa_status": "Not Started",
+      "dod_checklist": [],
+      "estimated_remaining_hours": 6,
+      "blocking_dependency_ids": [],
+      "required_for_sprint_goal": false,
+      "committed": true,
+      "final_disposition": "Pending"
+    },
+    {
+      "id": "WI-204",
+      "title": "Internal analytics dashboard tweak",
+      "priority": "Medium",
+      "business_value": "Medium",
+      "status": "In Progress",
+      "code_review_status": "Not Started",
+      "qa_status": "Not Started",
+      "dod_checklist": [],
+      "estimated_remaining_hours": 5,
+      "blocking_dependency_ids": [],
+      "required_for_sprint_goal": false,
+      "committed": true,
+      "final_disposition": "Pending"
+    },
+    {
+      "id": "WI-205",
+      "title": "Legacy report export bugfix",
+      "priority": "High",
+      "business_value": "Low",
+      "status": "In Progress",
+      "code_review_status": "Not Started",
+      "qa_status": "Not Started",
+      "dod_checklist": [],
+      "estimated_remaining_hours": 4,
+      "blocking_dependency_ids": [],
+      "required_for_sprint_goal": false,
+      "committed": true,
+      "final_disposition": "Pending"
+    },
+    {
+      "id": "WI-206",
+      "title": "Notification retry backoff tuning",
+      "priority": "Medium",
+      "business_value": "Low",
+      "status": "Blocked",
+      "code_review_status": "Not Started",
+      "qa_status": "Not Started",
+      "dod_checklist": [],
+      "estimated_remaining_hours": 3,
+      "blocking_dependency_ids": ["WI-203"],
+      "required_for_sprint_goal": false,
+      "committed": true,
+      "final_disposition": "Pending"
+    }
+  ],
+  "defects": [
+    {
+      "id": "DEF-201",
+      "work_item_id": "WI-205",
+      "severity": "Major",
+      "status": "Open",
+      "blocker_category": "flaky CI",
+      "description": "Report export test intermittently fails in CI pipeline."
+    }
+  ],
+  "release_candidate": {
+    "id": "REL-102",
+    "version": "v3.0.0-rc1",
+    "release_notes_available": false,
+    "rollback_plan_available": true,
+    "rollback_owner": "Elena Cho",
+    "monitoring_plan_available": true,
+    "tests_passed": false,
+    "unresolved_mandatory_dependencies": []
+  },
+  "authorized_actors": [
+    {"name": "Elena Cho", "role": "Tech Lead"},
+    {"name": "Marcus Webb", "role": "QA Lead"},
+    {"name": "Priya Nair", "role": "Delivery Manager"},
+    {"name": "Sam Ortiz", "role": "Observer"}
+  ],
+  "historical_sprints": [
+    {
+      "sprint_name": "Sprint 24 — Checkout Reliability",
+      "say_do_ratio": 100.0,
+      "blocker_categories": ["flaky CI"],
+      "carryover_count": 0
+    }
+  ],
+  "simulated_now": "2026-09-24T06:00:00Z",
+  "force_llm_failure": false
+}

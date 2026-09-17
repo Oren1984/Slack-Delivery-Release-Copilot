@@ -1,0 +1,117 @@
+{
+  "scenario_id": "healthy-release",
+  "title": "Scenario 1 — Healthy Release",
+  "description": "High completion rate, QA complete, no blockers, rollback plan available. Gate should return READY_FOR_HUMAN_APPROVAL and an authorized approval should succeed.",
+  "sprint": {
+    "id": "SPR-101",
+    "name": "Sprint 24 — Checkout Reliability",
+    "goal": "Ship a retry-safe checkout and payments flow with zero data-loss on transient failures.",
+    "start_date": "2026-08-31T09:00:00Z",
+    "end_date": "2026-09-11T18:00:00Z"
+  },
+  "work_items": [
+    {
+      "id": "WI-101",
+      "title": "Idempotent payment retry handler",
+      "priority": "Critical",
+      "business_value": "High",
+      "status": "Done",
+      "code_review_status": "Approved",
+      "qa_status": "Passed",
+      "dod_checklist": [
+        {"description": "Unit tests added", "completed": true},
+        {"description": "Runbook updated", "completed": true}
+      ],
+      "estimated_remaining_hours": 0,
+      "blocking_dependency_ids": [],
+      "required_for_sprint_goal": true,
+      "committed": true,
+      "final_disposition": "Delivered"
+    },
+    {
+      "id": "WI-102",
+      "title": "Checkout timeout circuit breaker",
+      "priority": "High",
+      "business_value": "High",
+      "status": "Done",
+      "code_review_status": "Approved",
+      "qa_status": "Passed",
+      "dod_checklist": [
+        {"description": "Load tested", "completed": true}
+      ],
+      "estimated_remaining_hours": 0,
+      "blocking_dependency_ids": [],
+      "required_for_sprint_goal": true,
+      "committed": true,
+      "final_disposition": "Delivered"
+    },
+    {
+      "id": "WI-103",
+      "title": "Checkout error messaging cleanup",
+      "priority": "Medium",
+      "business_value": "Medium",
+      "status": "Done",
+      "code_review_status": "Approved",
+      "qa_status": "Passed",
+      "dod_checklist": [
+        {"description": "Copy reviewed by UX", "completed": true}
+      ],
+      "estimated_remaining_hours": 0,
+      "blocking_dependency_ids": [],
+      "required_for_sprint_goal": false,
+      "committed": true,
+      "final_disposition": "Delivered"
+    },
+    {
+      "id": "WI-104",
+      "title": "Payments dashboard nice-to-have filter",
+      "priority": "Low",
+      "business_value": "Low",
+      "status": "Done",
+      "code_review_status": "Approved",
+      "qa_status": "Passed",
+      "dod_checklist": [],
+      "estimated_remaining_hours": 0,
+      "blocking_dependency_ids": [],
+      "required_for_sprint_goal": false,
+      "committed": true,
+      "final_disposition": "Delivered"
+    }
+  ],
+  "defects": [
+    {
+      "id": "DEF-101",
+      "work_item_id": "WI-102",
+      "severity": "Minor",
+      "status": "Closed",
+      "blocker_category": null,
+      "description": "Cosmetic spinner flicker on slow networks (fixed)."
+    }
+  ],
+  "release_candidate": {
+    "id": "REL-101",
+    "version": "v2.9.0",
+    "release_notes_available": true,
+    "rollback_plan_available": true,
+    "rollback_owner": "Elena Cho",
+    "monitoring_plan_available": true,
+    "tests_passed": true,
+    "unresolved_mandatory_dependencies": []
+  },
+  "authorized_actors": [
+    {"name": "Elena Cho", "role": "Tech Lead"},
+    {"name": "Marcus Webb", "role": "QA Lead"},
+    {"name": "Priya Nair", "role": "Delivery Manager"},
+    {"name": "Sam Ortiz", "role": "Observer"}
+  ],
+  "historical_sprints": [
+    {
+      "sprint_name": "Sprint 23 — Checkout Foundations",
+      "say_do_ratio": 92.0,
+      "blocker_categories": ["flaky CI"],
+      "carryover_count": 1
+    }
+  ],
+  "simulated_now": "2026-09-08T10:00:00Z",
+  "force_llm_failure": false
+}

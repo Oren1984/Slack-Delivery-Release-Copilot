@@ -1,0 +1,99 @@
+{
+  "scenario_id": "llm-failure",
+  "title": "Scenario 5 — LLM Failure",
+  "description": "Simulates an unavailable/invalid LLM response (force_llm_failure=true). The deterministic analysis, gate evaluation, and close-out must still complete successfully, with a deterministic fallback explanation and no lost or altered release decision.",
+  "sprint": {
+    "id": "SPR-105",
+    "name": "Sprint 28 — Inventory Sync Hardening",
+    "goal": "Eliminate inventory drift between the warehouse system and the storefront.",
+    "start_date": "2026-10-12T09:00:00Z",
+    "end_date": "2026-10-23T18:00:00Z"
+  },
+  "work_items": [
+    {
+      "id": "WI-501",
+      "title": "Inventory reconciliation job",
+      "priority": "Critical",
+      "business_value": "High",
+      "status": "Done",
+      "code_review_status": "Approved",
+      "qa_status": "Passed",
+      "dod_checklist": [
+        {"description": "Reconciliation dry-run verified", "completed": true}
+      ],
+      "estimated_remaining_hours": 0,
+      "blocking_dependency_ids": [],
+      "required_for_sprint_goal": true,
+      "committed": true,
+      "final_disposition": "Delivered"
+    },
+    {
+      "id": "WI-502",
+      "title": "Warehouse event stream consumer",
+      "priority": "High",
+      "business_value": "High",
+      "status": "Done",
+      "code_review_status": "Approved",
+      "qa_status": "Passed",
+      "dod_checklist": [
+        {"description": "Backpressure tested", "completed": true}
+      ],
+      "estimated_remaining_hours": 0,
+      "blocking_dependency_ids": [],
+      "required_for_sprint_goal": true,
+      "committed": true,
+      "final_disposition": "Delivered"
+    },
+    {
+      "id": "WI-503",
+      "title": "Inventory audit report export",
+      "priority": "Medium",
+      "business_value": "Medium",
+      "status": "In Progress",
+      "code_review_status": "Not Started",
+      "qa_status": "Not Started",
+      "dod_checklist": [],
+      "estimated_remaining_hours": 4,
+      "blocking_dependency_ids": [],
+      "required_for_sprint_goal": false,
+      "committed": true,
+      "final_disposition": "Carried Over"
+    }
+  ],
+  "defects": [
+    {
+      "id": "DEF-501",
+      "work_item_id": "WI-503",
+      "severity": "Minor",
+      "status": "Open",
+      "blocker_category": "reporting",
+      "description": "Audit export CSV omits timezone offset."
+    }
+  ],
+  "release_candidate": {
+    "id": "REL-105",
+    "version": "v4.1.0",
+    "release_notes_available": true,
+    "rollback_plan_available": true,
+    "rollback_owner": "Marcus Webb",
+    "monitoring_plan_available": true,
+    "tests_passed": true,
+    "unresolved_mandatory_dependencies": []
+  },
+  "authorized_actors": [
+    {"name": "Elena Cho", "role": "Tech Lead"},
+    {"name": "Marcus Webb", "role": "QA Lead"},
+    {"name": "Priya Nair", "role": "Delivery Manager"},
+    {"name": "Sam Ortiz", "role": "Observer"}
+  ],
+  "historical_sprints": [
+    {
+      "sprint_name": "Sprint 27 — Multi-Region Failover",
+      "say_do_ratio": 85.0,
+      "blocker_categories": ["data integrity"],
+      "carryover_count": 1
+    }
+  ],
+  "simulated_now": "2026-10-22T10:00:00Z",
+  "force_llm_failure": true
+}

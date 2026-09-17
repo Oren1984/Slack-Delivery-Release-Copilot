@@ -1,0 +1,108 @@
+{
+  "scenario_id": "release-blocked",
+  "title": "Scenario 3 — Release Blocked",
+  "description": "Open Blocker and Critical defects, a missing rollback plan, and incomplete mandatory QA evidence. The gate must return HOLD_REQUIRED and any approval attempt must be rejected.",
+  "sprint": {
+    "id": "SPR-103",
+    "name": "Sprint 27 — Multi-Region Failover",
+    "goal": "Ship multi-region failover for the order service with zero duplicate writes.",
+    "start_date": "2026-09-28T09:00:00Z",
+    "end_date": "2026-10-09T18:00:00Z"
+  },
+  "work_items": [
+    {
+      "id": "WI-301",
+      "title": "Multi-region failover switch",
+      "priority": "Critical",
+      "business_value": "High",
+      "status": "In QA",
+      "code_review_status": "Approved",
+      "qa_status": "Failed",
+      "dod_checklist": [
+        {"description": "Chaos test executed", "completed": false},
+        {"description": "Runbook updated", "completed": true}
+      ],
+      "estimated_remaining_hours": 6,
+      "blocking_dependency_ids": [],
+      "required_for_sprint_goal": true,
+      "committed": true,
+      "final_disposition": "Pending"
+    },
+    {
+      "id": "WI-302",
+      "title": "Failover health checks",
+      "priority": "Critical",
+      "business_value": "High",
+      "status": "In Code Review",
+      "code_review_status": "In Review",
+      "qa_status": "Not Started",
+      "dod_checklist": [
+        {"description": "Health check SLOs documented", "completed": false}
+      ],
+      "estimated_remaining_hours": 5,
+      "blocking_dependency_ids": [],
+      "required_for_sprint_goal": true,
+      "committed": true,
+      "final_disposition": "Pending"
+    },
+    {
+      "id": "WI-303",
+      "title": "Minor UI polish for status page",
+      "priority": "Low",
+      "business_value": "Low",
+      "status": "Done",
+      "code_review_status": "Approved",
+      "qa_status": "Passed",
+      "dod_checklist": [],
+      "estimated_remaining_hours": 0,
+      "blocking_dependency_ids": [],
+      "required_for_sprint_goal": false,
+      "committed": true,
+      "final_disposition": "Delivered"
+    }
+  ],
+  "defects": [
+    {
+      "id": "DEF-301",
+      "work_item_id": "WI-301",
+      "severity": "Blocker",
+      "status": "Open",
+      "blocker_category": "data integrity",
+      "description": "Failover switch causes duplicate order writes under simulated network partition."
+    },
+    {
+      "id": "DEF-302",
+      "work_item_id": "WI-302",
+      "severity": "Critical",
+      "status": "Open",
+      "blocker_category": "infra reliability",
+      "description": "Health check does not detect a stalled secondary region within SLA."
+    }
+  ],
+  "release_candidate": {
+    "id": "REL-103",
+    "version": "v3.4.0",
+    "release_notes_available": true,
+    "rollback_plan_available": false,
+    "rollback_owner": null,
+    "monitoring_plan_available": true,
+    "tests_passed": false,
+    "unresolved_mandatory_dependencies": ["Networking team sign-off"]
+  },
+  "authorized_actors": [
+    {"name": "Elena Cho", "role": "Tech Lead"},
+    {"name": "Marcus Webb", "role": "QA Lead"},
+    {"name": "Priya Nair", "role": "Delivery Manager"},
+    {"name": "Sam Ortiz", "role": "Observer"}
+  ],
+  "historical_sprints": [
+    {
+      "sprint_name": "Sprint 26 — Search Relevance Upgrade",
+      "say_do_ratio": 88.0,
+      "blocker_categories": ["data integrity"],
+      "carryover_count": 1
+    }
+  ],
+  "simulated_now": "2026-10-08T22:00:00Z",
+  "force_llm_failure": false
+}
